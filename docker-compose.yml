@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  magasin-mysql:
+    image: mysql:8.0
+    container_name: mysql-magasin
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=MagasinDb
+      - MYSQL_USER=magasin-user
+      - MYSQL_PASSWORD=password
+    ports:
+      - 3306:3306
+
+  magasin-main:
+    image: magasin-image
+    container_name: magasin
+    restart: on-failure
+    depends_on:
+      - myapp-mysql
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_HOST=magasin-mysql
+      - DATABASE_USER=magasin-user
+      - DATABASE_PASSWORD=password
+      - DATABASE_NAME=MagasinDb
+      - DATABASE_PORT=3306
