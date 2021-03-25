@@ -11,7 +11,7 @@ services:
       - MYSQL_USER=magasin-user
       - MYSQL_PASSWORD=password
     ports:
-      - "3306:3306"
+      - "33306:3306"
 
   magasin-main:
     image: magasin-image
