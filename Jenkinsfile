@@ -26,7 +26,7 @@ pipeline {
         }
         stage('deploy') {
         	steps {
-        		sh 'docker run -d -p 8888:8080 --name magasin magasin-image'
+        		sh 'ansible-playbook deploy-ansible.yml -i hosts.yml'
         	}
         }
     }
