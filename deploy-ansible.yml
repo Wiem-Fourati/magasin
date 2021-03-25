@@ -2,7 +2,9 @@
   - hosts: all 
     become: yes
     tasks:
-    
+    - name: clean docker
+      shell: docker system prune -a 
+      
     - name: Copy docker images files
       copy:
         src: magasin-image.tar
