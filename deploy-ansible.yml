@@ -3,14 +3,22 @@
     become: yes
     tasks:
     - name: clean docker
-      shell: docker system prune -a 
+      shell: docker system prune -y 
       
     - name: Copy docker images files
       copy:
         src: magasin-image.tar
         dest: /docker/
         mode: '0777'
-
+        
+    - name: remove any running container
+      shell: docker rm -f magasin
+      ignore_errors: yes
+      
+    - name: remove existing image
+      shell: docker rmi magasin-image
+      ignore_errors: yes
+      
     - name: load docker images 
       shell: docker load -i /docker/magasin-image.tar
 
