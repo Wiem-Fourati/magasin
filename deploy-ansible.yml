@@ -11,6 +11,12 @@
         dest: /docker/
         mode: '0777'
         
+    - name: Copy docker compose file
+      copy:
+        src: docker-compose.yml
+        dest: /docker/
+        mode: '0777'
+        
     - name: remove any running container
       shell: docker rm -f magasin
       ignore_errors: yes
@@ -23,5 +29,5 @@
       shell: docker load -i /docker/magasin-image.tar
 
     - name: lunch containers 
-      shell: docker-compose up -d
+      shell: docker-compose -f /docker/docker-compose.yml up -d
 #docker run -d -p 8888:8080 --name magasin magasin-image
