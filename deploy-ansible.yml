@@ -8,7 +8,7 @@
       copy:
         src: magasin-image.tar
         dest: /docker/
-        mode: '0664'
+        mode: '0777'
 
     - name: load docker images 
       shell: docker load -i /docker/magasin-image.tar
