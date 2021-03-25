@@ -3,7 +3,7 @@
     become: yes
     tasks:
     - name: clean docker
-      shell: docker system prune -y 
+      shell: docker system prune -f 
       
     - name: Copy docker images files
       copy:
