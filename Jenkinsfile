@@ -21,12 +21,12 @@ pipeline {
         }
         stage('create container') {
         	steps {
-        		sh 'docker build . -t magasin:0.0.1'
+        		sh 'docker build . -t magasin-image'
         	}
         }
         stage('deploy') {
         	steps {
-        		sh 'docker run -d -p 8888:8080 --name magasin magasin:0.0.1'
+        		sh 'docker run -d -p 8888:8080 --name magasin magasin-image'
         	}
         }
     }
