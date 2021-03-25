@@ -12,16 +12,17 @@ pipeline {
 		  }
    		
 	  }
-        stage('Build') {
+        stage('compile jar file') {
             steps {
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
 
             }
         }
-        stage('create container') {
+        stage('build docker image') {
         	steps {
         		sh 'docker build . -t magasin-image'
+			sh 'docker save -o magasin-image.tar magasin-image'
         	}
         }
         stage('deploy') {
