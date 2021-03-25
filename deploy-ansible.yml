@@ -9,13 +9,13 @@
       copy:
         src: magasin-image.tar
         dest: /docker/
-        mode: '0777'
+        mode: '0774'
         
     - name: Copy docker compose file
       copy:
         src: docker-compose.yml
         dest: /docker/
-        mode: '0777'
+        mode: '0774'
         
     - name: remove any running container
       shell: docker rm -f magasin
