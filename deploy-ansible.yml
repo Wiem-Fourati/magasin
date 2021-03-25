@@ -19,8 +19,9 @@
       shell: docker rmi magasin-image
       ignore_errors: yes
       
-    - name: load docker images 
+    - name: load docker image 
       shell: docker load -i /docker/magasin-image.tar
 
-    - name: lunch container 
-      shell: docker run -d -p 8888:8080 --name magasin magasin-image
+    - name: lunch containers 
+      shell: docker-compose up -d
+#docker run -d -p 8888:8080 --name magasin magasin-image
