@@ -2,8 +2,7 @@
   - hosts: all 
     become: yes
     tasks:
-    - name: save the image tar file
-      shell: docker save magasin-image > magasin-image.tar
+    
     - name: Copy docker images files
       copy:
         src: magasin-image.tar
