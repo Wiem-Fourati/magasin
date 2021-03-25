@@ -1,0 +1,17 @@
+---
+  - hosts: all 
+    become: yes
+    tasks:
+    - name: save the image tar file
+      shell: docker save magasin-image > magasin-image.tar
+    - name: Copy docker images files
+      copy:
+        src: magasin-image.tar
+        dest: /docker/
+        mode: '0664'
+
+    - name: load docker images 
+      shell: docker load -i /docker/magasin-image.tar
+
+    - name: lunch container 
+      shell: docker run -d -p 8888:8080 --name magasin magasin-image
