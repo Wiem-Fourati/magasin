@@ -27,7 +27,8 @@ pipeline {
         }
         stage('deploy') {
         	steps {
-        		sh 'ansible-playbook --vault-password-file /etc/ansible/vault-password-file deploy-ansible.yml -i hosts.yml -vvv'
+        		sh 'docker-compose up -d'
+			//ansible-playbook --vault-password-file /etc/ansible/vault-password-file deploy-ansible.yml -i hosts.yml -vvv
         	}
         }
     }
