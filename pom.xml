@@ -50,8 +50,8 @@
 		  <version>${metrics.version}</version>
 		</dependency>
 		<dependency>
-		  <group>io.prometheus</group>
-		  <artifact>simpleclient_common</artifact>
+		  <groupId>io.prometheus</groupId>
+		  <artifactId>simpleclient_common</artifactId>
 		  <version>${prom.version}</version>
 		</dependency>
 	</dependencies>
