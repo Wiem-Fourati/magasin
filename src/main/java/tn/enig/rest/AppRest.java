@@ -16,12 +16,18 @@ import tn.enig.model.Produit;
 
 @CrossOrigin("*") 
 @RestController
+@Timed
 public class AppRest {
+	
 	@Autowired
 	IProduitDao daop ;
 	public void setDaop(IProduitDao daop) {
 		this.daop=daop;
 	}
+	public AppRest(MeterRegistry registry) {
+        // constructs a gauge to monitor the size of the population
+        	registry.mapSize("produits", daop);
+        }
 	
 	@GetMapping("/produits")
 	public List<Produit> get1(){
