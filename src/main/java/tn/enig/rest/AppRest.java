@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tn.enig.dao.IProduitDao;
 import tn.enig.model.Produit;
+import java.util.Timer;
 
 @CrossOrigin("*") 
 @RestController
@@ -24,6 +25,7 @@ public class AppRest {
 	public void setDaop(IProduitDao daop) {
 		this.daop=daop;
 	}
+	// Timer timer = new Timer();
 	public AppRest(MeterRegistry registry) {
         // constructs a gauge to monitor the size of the population
         	registry.mapSize("produits", daop);
