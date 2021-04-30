@@ -2,7 +2,7 @@ package tn.enig;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+@EnablePrometheusMetrics
 @SpringBootApplication
 public class Tp3SpringRestApplication {
 
