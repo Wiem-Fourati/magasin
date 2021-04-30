@@ -11,7 +11,7 @@ services:
       - MYSQL_USER=magasin-user
       - MYSQL_PASSWORD=password
     ports:
-      - 3306:3306
+      - 33006:3306
     #service 2: definition of phpMyAdmin
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
