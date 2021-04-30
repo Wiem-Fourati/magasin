@@ -47,12 +47,12 @@
 		<dependency>
 		  <groupId>org.springframework.metrics</groupId>
 		  <artifactId>spring-metrics</artifactId>
-		  <version>latest</version>
+		  <version>0.5.1.RELEASE</version>
 		</dependency>
 		<dependency>
 		  <groupId>io.prometheus</groupId>
 		  <artifactId>simpleclient_common</artifactId>
-		  <version>latest</version>
+		  <version>0.10.0</version>
 		</dependency>
 	</dependencies>
 
